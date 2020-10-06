@@ -1,0 +1,332 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.bg {
+  background: url('../images/micah-tindell-T85mxDefkRI-unsplashtake-2.jpg')
+    center center/cover no-repeat;
+  display: fixed;
+  width: 100%;
+  height: 300px;
+  top: 0;
+  left: 0;
+  margin-top: 0;
+  overflow: hidden;
+}
+.container {
+  position: absolute;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 20px;
+  background-color: rgb(39, 39, 39);
+  padding: 2px 20px 2px 20px;
+  top: 300px;
+  opacity: 0.8;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+.splash-container {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.create-post-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.create-post-container input,
+.create-post-container button,
+.create-post-container textarea {
+  width: 90%;
+  font-size: 1rem !important;
+  border-radius: 5px;
+  line-height: 1.5rem !important;
+  padding: 5px;
+  margin: 0 20px;
+}
+.create-post-container button {
+  width: 91%;
+  background-color: rgb(68, 101, 247);
+  border: 0;
+}
+.create-post-container textarea {
+  height: 500px;
+}
+.create-post-container h1 {
+  font-weight: 350;
+}
+.search-container {
+  text-align: end;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  flex-direction: column;
+}
+.search-container input {
+  height: 100%;
+  font-size: 1.25rem;
+  height: 2.8rem;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 0 10px;
+}
+.btn-search {
+  background-color: #28a745;
+}
+
+.boards-container {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 0.5fr 3fr 1fr 1.4fr;
+}
+.chat-container {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 4fr;
+}
+.post-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  padding: 20px 10px;
+}
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding: 20px 10px;
+}
+.profile-grid h1 {
+  text-align: center;
+  font-weight: 350;
+}
+.post-grid article {
+  padding: 0 10px;
+}
+.center {
+  text-align: center;
+}
+.post-grid h1 {
+  text-align: center;
+  font-weight: 350;
+}
+.boards-center {
+  text-align: center;
+}
+.add-board {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.container > div {
+  align-content: center;
+  padding: 5px;
+}
+.nav {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  opacity: 0.8;
+  height: 70px;
+  width: 100%;
+  justify-content: space-between;
+  line-height: 1.6rem;
+  align-items: center;
+  padding: 0 5%;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+nav ul li {
+  list-style-type: none;
+  display: inline-block;
+}
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.25rem;
+  padding: 10px 30px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  align-items: center;
+}
+.btn-green {
+  background-color: #28a745;
+  padding: 10px 40px;
+  margin: 10px;
+}
+.btn-blue {
+  background-color: rgb(68, 101, 247);
+  margin: 10px;
+}
+.width-250 {
+  width: 250px;
+}
+.rounded-circle {
+  border-radius: 50%;
+}
+.underline {
+  text-decoration: underline;
+}
+.board-grid {
+  padding: 20px 10px;
+  display: grid;
+  grid-template-columns: 4fr 2fr 1.5fr;
+}
+.btn-link {
+  background: none !important;
+  border: none;
+  padding: 0 !important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  /*input has OS specific font-family*/
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.grid {
+  grid-template-columns: 1fr 1fr;
+}
+.m5 {
+  margin: 5px;
+}
+.mb10 {
+  margin-bottom: 20px;
+}
+.search-grid {
+  display: grid;
+  grid-template-columns: 3fr 1fr 0.7fr;
+  text-align: left;
+  width: 100% !important;
+  margin: 20px 0 0 0;
+}
+.login-container {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+.login-container h1 {
+  font-weight: 350;
+  margin-bottom: 20px;
+}
+.alert {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  text-align: center;
+  color: #000;
+  padding: 10px;
+  z-index: 9999;
+}
+.alert-danger {
+  background-color: #f00;
+}
+.alert-success {
+  background-color: #0f0;
+}
+.p10 {
+  padding: 10px;
+}
+
+/* Dots Loading Animation */
+.dots-loading {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.dots-loading::before,
+.dots-loading::after {
+  content: ' ';
+}
+
+.dots-loading div,
+.dots-loading::before,
+.dots-loading::after {
+  margin: 35px 5px;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #c4c4c4;
+  opacity: 0;
+  z-index: 10;
+}
+
+.dots-loading::before {
+  -moz-animation: opacitychange 1s ease-in-out infinite;
+  -webkit-animation: opacitychange 1s ease-in-out infinite;
+  -o-animation: opacitychange 1s ease-in-out infinite;
+  animation: opacitychange 1s ease-in-out infinite;
+}
+
+.dots-loading div {
+  -moz-animation: opacitychange 1s ease-in-out 0.33s infinite;
+  -webkit-animation: opacitychange 1s ease-in-out 0.33s infinite;
+  -o-animation: opacitychange 1s ease-in-out 0.33s infinite;
+  animation: opacitychange 1s ease-in-out 0.33s infinite;
+  -webkit-animation-fill-mode: infinite;
+  animation-fill-mode: infinite;
+}
+
+.dots-loading::after {
+  -moz-animation: opacitychange 1s ease-in-out 0.66s infinite;
+  -webkit-animation: opacitychange 1s ease-in-out 0.66s infinite;
+  -o-animation: opacitychange 1s ease-in-out 0.66s infinite;
+  animation: opacitychange 1s ease-in-out 0.66s infinite;
+  -webkit-animation-fill-mode: infinite;
+  animation-fill-mode: infinite;
+}
+
+@keyframes opacitychange {
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  60% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes opacitychange {
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  60% {
+    opacity: 1;
+  }
+}
+/* end loading dots */
+
+.messagebox textarea,
+.messagebox button,
+.messagebox input {
+  width: 99%;
+  box-sizing: border-box;
+  margin: 2px 0;
+}
+.messagebox textarea {
+  height: 75px;
+}
+.notify {
+  border-bottom: #f00 2px solid;
+}
