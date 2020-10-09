@@ -45,6 +45,7 @@ const App = () => {
     unreadComments: Boolean(false),
     unreadMessages: Boolean(false),
     socket: undefined,
+    usersOnline: undefined,
   };
 
   const reducer = (draft, action) => {
@@ -65,6 +66,9 @@ const App = () => {
       case 'flashMessage':
         draft.flashMessage = action.value;
         draft.fmType = action.fmType;
+        return;
+      case 'usersOnline':
+        draft.usersOnline = action.value;
         return;
       case 'closeFlashMessage':
         draft.flashMessage = '';

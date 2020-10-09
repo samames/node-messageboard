@@ -1,4 +1,10 @@
-import React, { useEffect, useState, useContext, Fragment } from 'react';
+import React, {
+  useEffect,
+  useState,
+  useContext,
+  Fragment,
+  useRef,
+} from 'react';
 import Axios from 'axios';
 import StateContext from '../StateContext';
 import { Link, Redirect } from 'react-router-dom';
@@ -114,6 +120,7 @@ const Boards = () => {
                   <br />
                   <Moment format='DD/MM/YYYY h:mma'>{board.latestDate}</Moment>
                 </div>
+                <div className='container'>{appState.usersOnline}</div>
               </Fragment>
             );
           } else {

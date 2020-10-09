@@ -29,6 +29,7 @@ io.on('connection', (socket) => {
   socket.on('messageToServer', (dataFromClient) => {
     connectedUsers[dataFromClient.username] = socket;
     console.log(Object.keys(connectedUsers), '32');
+    io.emit('usersOnline', Object.keys(connectedUsers));
   });
   socket.on('join', ({ username, room }) => {
     socket.join(room);
@@ -54,6 +55,7 @@ io.on('connection', (socket) => {
     delete connectedUsers[key];
     socket.disconnect(true);
     console.log(Object.keys(connectedUsers), '58');
+    io.emit('usersOnline', Object.keys(connectedUsers));
   });
 
   socket.on('join room', (roomID) => {
