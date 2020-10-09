@@ -20,14 +20,18 @@ const Chat = () => {
   };
 
   useEffect(() => {
+    if (appState.socket) {
     appState.socket.emit('join', { username: appState.username, room: 'main' });
     appState.socket.on('message', (message) => {
+      if (document.getElementById('chat-container')) {
       const html = `<div>${message}</div>`;
       document
         .getElementById('chat-container')
         .insertAdjacentHTML('beforeend', html);
+      }
     });
-  }, []);
+  }
+  }, [appState.socket]);
 
   return (
     <Fragment>

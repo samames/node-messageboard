@@ -21,7 +21,7 @@ const Home = () => {
         appDispatch({
           type: 'login',
           value: response.data.user.name,
-          value2: response.data.slug,
+          value2: response.data.user.slug,
         });
         appDispatch({
           type: 'flashMessage',
