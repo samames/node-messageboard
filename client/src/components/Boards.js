@@ -120,7 +120,25 @@ const Boards = () => {
                   <br />
                   <Moment format='DD/MM/YYYY h:mma'>{board.latestDate}</Moment>
                 </div>
-                <div className='container'>{appState.usersOnline}</div>
+                <div className='container'>
+                  Users online:{' '}
+                  {appState.usersOnline &&
+                    Object.keys(appState.usersOnline).map((user, i) => {
+                      if (i < Object.keys(appState.usersOnline).length - 1) {
+                        return (
+                          <Link to={`/profile/${appState.usersOnline[user]}`}>
+                            {user},{' '}
+                          </Link>
+                        );
+                      } else {
+                        return (
+                          <Link to={`/profile/${appState.usersOnline[user]}`}>
+                            {user}
+                          </Link>
+                        );
+                      }
+                    })}
+                </div>
               </Fragment>
             );
           } else {

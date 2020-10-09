@@ -12,6 +12,7 @@ const Socket = () => {
     appState.socket.on('messageFromServer', () => {
       appState.socket.emit('messageToServer', {
         username: appState.username,
+        slug: appState.slug,
       });
     });
     appState.socket.on('userOff', () => {
@@ -36,16 +37,7 @@ const Socket = () => {
       document.getElementById('notifyBoards').classList.add('notify');
     });
     appState.socket.on('usersOnline', (users) => {
-      let userString = 'Users online: ';
-      users.forEach((user, i) => {
-        if (i < users.length - 1) {
-          userString += `${user}, `;
-        } else {
-          userString += `${user}`;
-        }
-      });
-
-      appDispatch({ type: 'usersOnline', value: userString });
+      appDispatch({ type: 'usersOnline', value: users });
     });
   }, []);
 

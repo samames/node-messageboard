@@ -18,7 +18,11 @@ const Home = () => {
       if (response.data.token) {
         localStorage.setItem('token', response.data.token);
 
-        appDispatch({ type: 'login', value: response.data.user.name });
+        appDispatch({
+          type: 'login',
+          value: response.data.user.name,
+          value2: response.data.slug,
+        });
         appDispatch({
           type: 'flashMessage',
           value: 'you have logged in successfully!',
