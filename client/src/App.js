@@ -105,15 +105,16 @@ const App = () => {
           if (response.data.unreadMessages) {
             dispatch({ type: 'unreadMessages' });
           }
+          if (!state.socket) {
           dispatch({
             type: 'login',
             value: response.data.name,
             value2: response.data.slug,
-          });
+          }); 
+        }
         } catch (e) {
           console.error(e.message);
         }
-      } else {
       }
     };
     getProfile();

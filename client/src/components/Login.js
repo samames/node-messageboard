@@ -17,12 +17,13 @@ const Home = () => {
       const response = await Axios.post('/users/login', { email, password });
       if (response.data.token) {
         localStorage.setItem('token', response.data.token);
-
+        if (!appState.socket) {
         appDispatch({
           type: 'login',
           value: response.data.user.name,
           value2: response.data.user.slug,
         });
+      }
         appDispatch({
           type: 'flashMessage',
           value: 'you have logged in successfully!',

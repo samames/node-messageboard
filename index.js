@@ -30,8 +30,6 @@ io.on('connection', (socket) => {
   socket.on('messageToServer', (dataFromClient) => {
     connectedUsers[dataFromClient.username] = socket;
     connectedUsers[dataFromClient.username].slug = dataFromClient.slug;
-
-    const usersSlugs = {};
     for (const [key, value] of Object.entries(connectedUsers)) {
       usersSlugs[key] = value.slug;
     }
@@ -59,11 +57,12 @@ io.on('connection', (socket) => {
   });
   socket.on('disconnect', () => {
     const key = getKeyByValue(connectedUsers, socket);
-    delete connectedUsers[key];
-    delete usersSlugs[key];
-    socket.disconnect(true);
-    console.log(usersSlugs);
-    io.emit('usersOnline', usersSlugs);
+    if (key) {
+      delete connectedUsers[key];
+      delete usersSlugs[key];
+      socket.disconnect(true);
+      io.emit('usersOnline', usersSlugs);
+    }
   });
 
   socket.on('join room', (roomID) => {
