@@ -58,9 +58,10 @@ const Search = () => {
                 </div>
                 <div>
                   Authored by{' '}
-                  <Link to={`/profile/${post.author._id}`}>
+                  {post.author ? (
+                  <Link to={`/profile/${post.author.name}`}>
                     {post.author.name}
-                  </Link>
+                  </Link>) : 'Deleted user'}
                 </div>
                 <div>
                   <Moment format='DD/MM/YYYY h:mma'>{post.createdAt}</Moment>
