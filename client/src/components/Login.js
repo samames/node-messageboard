@@ -20,8 +20,7 @@ const Home = () => {
         if (!appState.socket) {
         appDispatch({
           type: 'login',
-          value: response.data.user.name,
-          value2: response.data.user.slug,
+          value: response.data.user.name
         });
       }
         appDispatch({

@@ -12,7 +12,6 @@ const Socket = () => {
     appState.socket.on('messageFromServer', () => {
       appState.socket.emit('messageToServer', {
         username: appState.username,
-        slug: appState.slug,
       });
     });
     appState.socket.on('userOff', () => {

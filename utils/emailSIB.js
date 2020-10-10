@@ -33,10 +33,7 @@ const sendEmail = async (mailObj) => {
     console.log(`Message sent: ${mailStatus.messageId}`);
     return `Message sent: ${mailStatus.messageId}`;
   } catch (error) {
-    console.error(error);
-    throw new Error(
-      `Something went wrong in the sendmail method. Error: ${error.message}`
-    );
+    console.error(`Something went wrong in the sendmail method. Error: ${error.message}`);
   }
 };
 const sendWelcomeEmail = async (email, name, id, host, token) => {

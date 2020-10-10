@@ -25,7 +25,7 @@ const Profiles = (props) => {
         }
 
         const response = await Axios.get(`/users/${id}`);
-
+        
         setProfile(response.data.userProfile);
         setFollowed(response.data.followed);
         setLoading(false);

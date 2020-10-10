@@ -129,7 +129,7 @@ exports.getMyProfile = async (req, res) => {
 
 exports.getProfile = async (req, res) => {
   try {
-    const userProfile = await User.findOne({ slug: req.params.id });
+    const userProfile = await User.findOne({ name: req.params.id });
     const user = await User.findById(req.user._id);
 
     const follow = user.follows.find(

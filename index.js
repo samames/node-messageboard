@@ -23,18 +23,14 @@ const expressServer = app.listen(PORT, () => {
 const io = socketio(expressServer);
 app.io = io;
 const rooms = {};
-const usersSlugs = {};
 
 io.on('connection', (socket) => {
   socket.emit('messageFromServer');
   socket.on('messageToServer', (dataFromClient) => {
     connectedUsers[dataFromClient.username] = socket;
-    connectedUsers[dataFromClient.username].slug = dataFromClient.slug;
-    for (const [key, value] of Object.entries(connectedUsers)) {
-      usersSlugs[key] = value.slug;
-    }
-    console.log(usersSlugs);
-    io.emit('usersOnline', usersSlugs);
+    
+    console.log(Object.keys(connectedUsers));
+    io.emit('usersOnline', Object.keys(connectedUsers));
   });
   socket.on('join', ({ username, room }) => {
     socket.join(room);
@@ -59,9 +55,9 @@ io.on('connection', (socket) => {
     const key = getKeyByValue(connectedUsers, socket);
     if (key) {
       delete connectedUsers[key];
-      delete usersSlugs[key];
       socket.disconnect(true);
-      io.emit('usersOnline', usersSlugs);
+      console.log(Object.keys(connectedUsers))
+      io.emit('usersOnline', Object.keys(connectedUsers));
     }
   });
 

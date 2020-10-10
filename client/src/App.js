@@ -40,7 +40,6 @@ const App = () => {
     loggedIn: Boolean(localStorage.getItem('token')),
     superUser: Boolean(false),
     username: localStorage.getItem('username'),
-    slug: '',
     flashMessage: '',
     fmType: '',
     unreadComments: Boolean(false),
@@ -54,7 +53,6 @@ const App = () => {
       case 'login':
         draft.loggedIn = true;
         draft.username = action.value;
-        draft.slug = action.value2;
         draft.socket = socketIOClient(endpoint);
         return;
       case 'superUserLogin':
@@ -108,8 +106,7 @@ const App = () => {
           if (!state.socket) {
           dispatch({
             type: 'login',
-            value: response.data.name,
-            value2: response.data.slug,
+            value: response.data.name
           }); 
         }
         } catch (e) {

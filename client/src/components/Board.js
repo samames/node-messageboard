@@ -54,9 +54,9 @@ const Board = (props) => {
               </div>
               <div>
                 Authored by:{' '}
-                <Link className='underline' to={`/profile/${post.author.slug}`}>
+                {post.author ? (<Link className='underline' to={`/profile/${post.author.slug}`}>
                   {post.author.name}
-                </Link>
+                </Link>) : 'Deleted user'}
               </div>
               <div>
                 <Moment format='DD/MM/YYYY h:mma'>{post.createdAt}</Moment>

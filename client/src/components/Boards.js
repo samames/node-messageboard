@@ -114,25 +114,26 @@ const Boards = () => {
                   </strong>
                   <br />
                   By{' '}
+                  {board.latestAuthor ? (
                   <Link to={`/profile/${board.latestAuthorId}`}>
                     {board.latestAuthor}
-                  </Link>
+                  </Link>): 'Deleted user'}
                   <br />
                   <Moment format='DD/MM/YYYY h:mma'>{board.latestDate}</Moment>
                 </div>
                 <div className='container'>
                   Users online:{' '}
                   {appState.usersOnline &&
-                    Object.keys(appState.usersOnline).map((user, i) => {
-                      if (i < Object.keys(appState.usersOnline).length - 1) {
+                    appState.usersOnline.map((user, i) => {
+                      if (i < appState.usersOnline.length - 1) {
                         return (
-                          <Link to={`/profile/${appState.usersOnline[user]}`}>
+                          <Link key={user} to={`/profile/${user}`}>
                             {user},{' '}
                           </Link>
                         );
                       } else {
                         return (
-                          <Link to={`/profile/${appState.usersOnline[user]}`}>
+                          <Link key={user} to={`/profile/${user}`}>
                             {user}
                           </Link>
                         );

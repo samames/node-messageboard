@@ -92,16 +92,16 @@ const Post = (props) => {
         <article className='center'>
           <h1>{post.title}</h1> {post.content}
           <p>
-            Written by <Link to={`/profile/${author.slug}`}>{author.name}</Link>
+            Written by {author ? (<Link to={`/profile/${author.name}`}>{author.name}</Link>) : 'Deleted user'}
             , <Moment format='DD/MM/YYYY h:mma'>{post.createdAt}</Moment>
           </p>
         </article>
         <aside>
-          {author.slug ? (
+          {author ? (
             <img
               alt='avatar'
               className='rounded-circle'
-              src={`/users/${author.slug}/avatar`}
+              src={`/users/${author.name}/avatar`}
             />
           ) : (
             ''

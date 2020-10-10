@@ -29,6 +29,18 @@ exports.getBoards = async (req, res) => {
         .exec();
       if (post !== null) {
         post.populate('author').execPopulate();
+        if (!post.author) {
+          return {
+            _id: boardI._id,
+            title: boardI.title,
+            description: boardI.description,
+            slug: boardI.slug,
+            numOfPosts: posts.length,
+            latestTitle: post.title,
+            latestSlug: post.slug,
+            latestDate: post.createdAt,
+          };
+        }
         return {
           _id: boardI._id,
           title: boardI.title,
@@ -36,10 +48,10 @@ exports.getBoards = async (req, res) => {
           slug: boardI.slug,
           numOfPosts: posts.length,
           latestTitle: post.title,
-          latestSlug: post.slug,
+          latestSlug: post.slug,  
+          latestDate: post.createdAt,
           latestAuthor: post.author.name,
           latestAuthorId: post.author.slug,
-          latestDate: post.createdAt,
         };
       } else {
         return {

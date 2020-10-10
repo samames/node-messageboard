@@ -66,10 +66,6 @@ const userSchema = new mongoose.Schema(
     resetPasswordExpires: {
       type: Date,
     },
-    slug: {
-      type: String,
-      unique: true,
-    },
     unreadMessages: {
       type: Boolean,
       default: false,
@@ -98,7 +94,7 @@ userSchema.virtual('posts', {
 });
 userSchema.pre('save', function (next) {
   if (this.isModified('name')) {
-    this.slug = slug(this.name);
+    this.name = slug(this.name);
   }
   next();
 });
